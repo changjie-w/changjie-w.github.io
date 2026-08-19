@@ -1,0 +1,108 @@
+# Site identity
+locale: "en-US"
+site_theme: "default"
+title: "Changjie W. Personal Page"
+title_separator: "-"
+name: &name "Changjie W."
+description: &description "The academic homepage of Changjie W."
+url: "https://changjie-w.github.io"
+baseurl: ""
+repository: "changjie-w/changjie-w.github.io"
+
+# Sidebar profile. Replace these placeholders with your own details.
+author:
+  avatar: "profile.svg"
+  name: "Changjie W."
+  bio: "Researcher · Engineer · Lifelong Learner"
+  location: "City, Country"
+  employer: "University / Company"
+  uri:
+  email: "you@example.com"
+  googlescholar:
+  github:
+  linkedin:
+  orcid:
+
+# Footer feed
+atom_feed:
+  hide: false
+  path:
+
+# Page behavior
+breadcrumbs: false
+future: true
+read_more: "disabled"
+comments:
+  provider:
+analytics:
+  provider: "false"
+
+# Files read by Jekyll
+include:
+  - _pages
+  - files
+exclude:
+  - .bundle
+  - .git
+  - .github
+  - .jekyll-cache
+  - .sass-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - node_modules
+  - README.md
+  - vendor
+keep_files:
+  - .git
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Markdown processing
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+
+# Default layout for pages
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+# Styling and output
+sass:
+  sass_dir: _sass
+  style: compressed
+permalink: /:categories/:title/
+timezone: Asia/Shanghai
+
+# GitHub Pages-compatible plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+whitelist:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
+
+# Minify generated HTML
+compress_html:
+  clippings: all
+  ignore:
+    envs: development

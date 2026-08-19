@@ -1,48 +1,44 @@
-# Personal homepage
+# Changjie W. Personal Page
 
 Live site: <https://changjie-w.github.io/>
 
-This is a plain HTML and CSS website. It does not require Jekyll, npm, or a build command.
+This site uses [Jekyll](https://jekyllrb.com/) and the [AcademicPages](https://github.com/academicpages/academicpages.github.io) template, which is based on Minimal Mistakes.
 
 ## Edit on GitHub
 
-1. Open the [`changjie-w.github.io`](https://github.com/changjie-w/changjie-w.github.io) repository.
-2. Open `index.html` and click the pencil icon in the upper-right corner.
-3. Replace the placeholder text, then click **Commit changes**.
-4. Commit directly to `main`. GitHub Pages will normally update within a few minutes.
+You can edit the site without installing anything:
 
-Common content to replace in `index.html`:
+1. Open a file in this repository.
+2. Click the pencil icon.
+3. Make your changes and click **Commit changes**.
+4. Commit to `main`; GitHub Pages will rebuild the site automatically.
 
-| Content | Search for |
+The most useful files are:
+
+| File | What to edit |
 | --- | --- |
-| Name | `Changjie W.` |
-| Initials in the avatar | `CW` |
-| Short tagline | `A short introduction goes here.` |
-| Location | `City, Country` |
-| School or employer | `University / Company` |
-| Email | `you@example.com` (replace both the visible text and `mailto:` value) |
-| Google Scholar | Find the `Google Scholar` link and replace `href="#"` |
-| Biography | Text inside `<section id="about">` |
-| News | Text inside `<section id="news">` |
-| Education | Text inside `<section id="education">` |
-| CV link | Find the `CV` link in the navigation and replace `href="#"` |
+| `_config.yml` | Name, sidebar biography, location, employer, email, profile links, and site title |
+| `_pages/about.md` | Homepage introduction, news, education, projects, and service |
+| `_pages/cv.md` | CV page |
+| `_data/navigation.yml` | Top navigation links |
+| `images/profile.svg` | Current placeholder portrait |
+| `_includes/footer/custom.html` | Extra footer content such as the Sitemap link |
 
-## Change the appearance
+To use a real portrait, upload an image such as `images/profile.jpg`, then change this line in `_config.yml`:
 
-Open `styles.css` in the GitHub editor. The color variables at the top control most of the design:
+```yaml
+avatar: "profile.jpg"
+```
 
-- `--background`: page background
-- `--text`: main text color
-- `--muted`: secondary text color
-- `--accent`: links and highlights
-- `--content-width`: maximum page width
+To publish a PDF résumé, upload it as `files/cv.pdf` and link to `/files/cv.pdf` from `_pages/cv.md` or `_data/navigation.yml`.
 
 ## Preview locally
 
-From the repository directory, run:
+Install Ruby and Bundler, then run:
 
 ```bash
-python3 -m http.server 8000
+bundle install
+bundle exec jekyll serve --config _config.yml,_config_local.yml
 ```
 
-Then open <http://localhost:8000/>. Stop the server with `Ctrl+C`.
+Open <http://localhost:4000/>. Changes to `_config.yml` require restarting Jekyll.

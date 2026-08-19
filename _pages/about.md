@@ -7,36 +7,36 @@ redirect_from:
   - /about.html
 ---
 
-Write a short introduction here. Include your current position, research interests, and the questions or projects you care about.
+I am currently a master’s student at the School of Artificial Intelligence and Data Science (AIDS), University of Science and Technology of China. My research interests
+  lie in machine learning systems and applications of large language models. I hope to continue learning and contribute meaningfully to these fields. I would be delighted to
+  connect and exchange ideas with you!
 
-Add a second paragraph for your academic background, professional experience, or the kind of work you would like to pursue.
 
 ------
 
 News
 ======
 
-- **2026** — Add a publication, award, talk, project milestone, or other recent update.
+- One paper (as second author) is under review at AAAI 2027.
+- One paper (as third author) is under review at TMLR.
+  
 
 ------
 
 Education
 ======
 
-- **Degree and field of study**  
-  University Name, 20XX–20XX
+- **Master of Electronic Information (Artificial Intelligence)**  
+  University of Science and Technology of China
+- **Bachelor of computer-related (Data Science and Big Data Technology)**  
+  Anhui University
 
 ------
 
 Working Projects
 ======
 
-1. **Project title**  
-   Add a short description of the project and your role.
+- coming soon.
 
 ------
 
-Professional Services
-======
-
-- Add conferences, journals, organizations, or communities you contribute to.

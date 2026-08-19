@@ -26,7 +26,7 @@ Education
 
 - **Master of Electronic Information (Artificial Intelligence)**  
   University of Science and Technology of China
-- **Bachelor of computer-related (Data Science and Big Data Technology)**
+- **Bachelor of computer-related (Data Science and Big Data Technology)**  
   Anhui University
 
 ------

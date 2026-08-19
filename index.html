@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <title>About Me - changjie Personal Page</title>
+  <link rel="canonical" href="https://changjie.github.io/">
+
+  <!-- 预先设置主题，避免刷新时闪烁 -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.setAttribute('data-theme', 'dark');
+    } catch (e) {}
+  </script>
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:locale" content="en-US">
+  <meta property="og:site_name" content="changjie Personal Page">
+  <meta property="og:title" content="About Me">
+  <meta property="og:url" content="https://changjie.github.io/">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- 网站图标（占位：学士帽，颜色为主题链接色） -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Cpath%20fill='%2352adc8'%20d='M12%203%201%208l11%205%209-4.09V15h2V8z'/%3E%3Cpath%20fill='%2352adc8'%20d='M5%2011.5V16c0%201.5%203%203%207%203s7-1.5%207-3v-4.5l-7%203.18z'/%3E%3C/svg%3E">
+
+  <style>
+    /* ===== 主题变量（AcademicPages / Minimal Mistakes 配色） ===== */
+    :root {
+      --global-base-color: #7a8288;
+      --global-bg-color: #fff;
+      --global-footer-bg-color: #f2f3f3;
+      --global-border-color: #f2f3f3;
+      --global-dark-border-color: #bdc1c4;
+      --global-link-color: #52adc8;
+      --global-link-color-hover: #235f6e;
+      --global-link-color-visited: #639fae;
+      --global-masthead-link-color: #494e52;
+      --global-masthead-link-color-hover: #5b6166;
+      --global-text-color: #494e52;
+      --global-text-color-light: #bdc1c4;
+      --global-thead-color: #f2f3f3;
+    }
+    html[data-theme="dark"] {
+      --global-base-color: #474747;
+      --global-bg-color: #474747;
+      --global-footer-bg-color: #474747;
+      --global-border-color: #bdc1c4;
+      --global-dark-border-color: #dadada;
+      --global-link-color: #0ea1c5;
+      --global-link-color-hover: #0b7994;
+      --global-link-color-visited: #4ab9d4;
+      --global-masthead-link-color: #fff;
+      --global-masthead-link-color-hover: #dadada;
+      --global-text-color: #fff;
+      --global-text-color-light: #f3f3f3;
+      --global-thead-color: #ededed;
+    }
+
+    /* ===== 基础 ===== */
+    *, *:before, *:after { box-sizing: border-box; }
+    html {
+      box-sizing: border-box;
+      background-color: var(--global-bg-color);
+      font-size: 18px;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    body {
+      position: relative;
+      min-height: 100vh;
+      margin: 0;
+      padding: 70px 0 9em; /* 顶部为固定导航栏留白，底部为页脚留白 */
+      color: var(--global-text-color);
+      background-color: var(--global-bg-color);
+      font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto",
+        "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+      line-height: 1.5;
+      transition: background-color .2s ease, color .2s ease;
+    }
+    h1 { margin-top: 0; font-size: 1.563em; }
+    h2 { font-size: 1.25em; }
+    h3 { font-size: 1.125em; }
+    a { color: var(--global-link-color); text-decoration: none; }
+    a:hover { color: var(--global-link-color-hover); }
+    a:visited { color: var(--global-link-color-visited); }
+    p { margin-bottom: 1.3em; }
+    hr {
+      display: block;
+      margin: 1em 0;
+      border: 0;
+      border-top: 1px solid var(--global-border-color);
+    }
+
+    /* 占位提示文字（待填充内容处显示为浅灰） */
+    .placeholder { color: var(--global-text-color-light) !important; font-style: italic; }
+
+    /* 图标（内联 SVG，仿 Font Awesome 风格） */
+    .icon { display: inline-block; vertical-align: -0.125em; }
+    .icon svg { width: 1em; height: 1em; fill: currentColor; }
+    .icon-fw { width: 1.25em; text-align: center; }
+    .icon-pad-right { padding-right: .5em; }
+    .icon-stroke svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ===== 顶部导航栏（固定） ===== */
+    .masthead {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--global-bg-color);
+      z-index: 20;
+      animation: intro 0.3s both;
+      animation-delay: 0.15s;
+      transition: background-color .2s ease;
+    }
+    .masthead::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background: var(--global-border-color);
+    }
+    .masthead__inner-wrap {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0.5em 1em;
+    }
+    .masthead__inner-wrap::after { content: ""; display: table; clear: both; }
+    .masthead__menu ul { margin: 0; padding: 0; clear: both; list-style-type: none; }
+    .greedy-nav { position: relative; min-width: 250px; background: var(--global-bg-color); }
+    .greedy-nav a {
+      display: block;
+      margin: 0 1rem;
+      padding: 0.5rem 0;
+      color: var(--global-masthead-link-color);
+      text-decoration: none;
+    }
+    .greedy-nav a:hover { color: var(--global-masthead-link-color-hover); }
+    .greedy-nav .visible-links { display: table; }
+    .greedy-nav .visible-links li { display: table-cell; vertical-align: middle; white-space: nowrap; }
+    .greedy-nav .visible-links li:first-child { font-weight: bold; padding-right: 2em; }
+    .greedy-nav .visible-links li:first-child a { margin-left: 0; }
+    .greedy-nav .visible-links li:last-child a { margin-right: 0; }
+    .greedy-nav .visible-links a { position: relative; }
+    /* 悬停时的下划线动画 */
+    .greedy-nav .visible-links a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 4px;
+      width: 100%;
+      background: var(--global-border-color);
+      transform: scaleX(0);
+      transition: transform 0.2s ease-in-out;
+    }
+    .greedy-nav .visible-links a:hover::before { transform: scaleX(1); }
+    /* 主题切换按钮 */
+    .greedy-nav .visible-links #theme-toggle a {
+      width: 25px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* ===== 主体布局 ===== */
+    #main {
+      max-width: 1280px;
+      margin: 2em auto 0;
+      padding-left: 1em;
+      padding-right: 1em;
+      animation: intro 0.3s both;
+      animation-delay: 0.35s;
+    }
+    #main::after { content: ""; display: table; clear: both; }
+
+    /* ---- 左侧个人资料侧栏 ---- */
+    .sidebar { width: 100%; }
+    .author__avatar { display: block; }
+    .author__avatar svg {
+      width: 175px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+      padding: 5px;
+      border: 1px solid var(--global-border-color);
+      background-color: var(--global-bg-color);
+    }
+    .author__content { display: block; width: 100%; line-height: 1; }
+    .author__name { margin: 10px 0; font-size: 1em; }
+    .author__bio { margin: 10px 0 20px; font-size: .85em; line-height: 1.5; }
+    .author__urls-wrapper { position: relative; display: block; z-index: 10; }
+    .author__urls-wrapper button { margin-bottom: 1em; }
+    /* Follow 按钮（移动端显示，桌面端隐藏） */
+    .btn--inverse {
+      color: var(--global-text-color-light) !important;
+      border: 1px solid var(--global-border-color) !important;
+      background-color: var(--global-bg-color);
+      font-size: .6875em;
+      padding: .5em 1.5em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn--inverse:hover { color: #fff !important; border-color: var(--global-text-color-light); }
+    .author__urls { display: none; margin: 0; padding: 0; list-style-type: none; }
+    .author__urls.is--visible { display: block; }
+    .author__urls li { margin-bottom: .5em; font-size: .75em; }
+    .author__urls a { color: var(--global-text-color); }
+    .author__urls a:hover { color: var(--global-link-color-hover); }
+    .author__urls .icon { color: var(--global-text-color-light); }
+
+    /* ---- 右侧正文 ---- */
+    .page { width: 100%; float: left; margin-left: 0; margin-right: 0; }
+    .page__title { margin-top: 0; line-height: 1; font-size: 2.441em; }
+    .page__content { clear: both; width: 100%; }
+    .page__content h2 { padding-bottom: 0.5em; border-bottom: 1px solid var(--global-border-color); }
+    .page__content p, .page__content li, .page__content dl { font-size: 1em; }
+    .page__content p { margin: 0 0 1.3em; }
+    .page__content a { text-decoration: underline; }
+
+    /* ===== 页脚（绝对定位，贴住页面底部） ===== */
+    .page__footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: var(--global-footer-bg-color);
+      color: var(--global-text-color-light);
+      border-top: 1px solid var(--global-dark-border-color);
+      animation: intro 0.3s both;
+      animation-delay: 0.45s;
+      transition: background-color .2s ease;
+    }
+    .page__footer footer {
+      max-width: 1280px;
+      margin: 1em auto 0;
+      padding: 0 1em 1em;
+    }
+    .page__footer a { color: var(--global-text-color-light); }
+    .page__footer a:hover { color: var(--global-text-color); }
+    .page__footer-follow ul { margin: 0; padding: 0; list-style-type: none; }
+    .page__footer-follow li {
+      display: inline-block;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: .75em;
+      text-transform: uppercase;
+    }
+    .page__footer-follow a { padding-right: 10px; font-weight: bold; }
+    .page__footer-follow .icon-rss { color: #fa9b39; }
+    .page__footer-copyright { font-size: .6875em; }
+
+    /* 入场动画 */
+    @keyframes intro {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* ===== 响应式断点 ===== */
+    /* 925px 以上：侧栏在左，正文在右 */
+    @media (min-width: 57.8125em) {
+      .sidebar { width: 15.2542372881%; float: left; margin-right: 1.6949152542%; opacity: 1; }
+      .page {
+        width: 83.0508474576%;
+        float: right;
+        margin-right: 0;
+        padding-left: 4.2372881356%;
+        padding-right: 16.9491525424%;
+      }
+      .author__urls-wrapper button { display: none; }
+      .author__urls { display: block; }
+    }
+    /* 1024px 以上：侧栏固定，独立滚动 */
+    @media screen and (min-width: 1024px) {
+      .sidebar {
+        height: 100vh;
+        overflow-y: auto;
+        position: fixed;
+        padding-top: 70px;
+      }
+    }
+    /* 1280px 以上：限制侧栏最大宽度 */
+    @media (min-width: 80em) {
+      .sidebar { max-width: 250px; padding-right: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ================= 顶部导航栏 ================= -->
+  <div class="masthead">
+    <div class="masthead__inner-wrap">
+      <div class="masthead__menu">
+        <nav id="site-nav" class="greedy-nav">
+          <ul class="visible-links">
+            <li class="masthead__menu-item masthead__menu-item--lg">
+              <a href="#">changjie Personal Page</a>
+            </li>
+            <li class="masthead__menu-item">
+              <a href="#">CV</a>
+            </li>
+            <li class="masthead__menu-item">
+              <a href="#">Some Guides</a>
+            </li>
+            <li id="theme-toggle" class="masthead__menu-item">
+              <a role="button" aria-label="toggle theme" aria-labelledby="theme-icon">
+                <i id="theme-icon" class="icon">
+                  <!-- 太阳图标（浅色模式） -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/>
+                  </svg>
+                </i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div id="main" role="main">
+    <!-- ================= 左侧个人资料侧栏 ================= -->
+    <div class="sidebar sticky">
+      <div itemscope itemtype="http://schema.org/Person">
+        <!-- 头像（占位：换成自己的照片，替换下面的 <svg> 为 <img src="images/profile.png">） -->
+        <div class="author__avatar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" alt="changjie">
+            <circle cx="100" cy="100" r="100" fill="var(--global-footer-bg-color)"/>
+            <circle cx="100" cy="78" r="34" fill="var(--global-text-color-light)"/>
+            <path d="M40 175a60 60 0 0 1 120 0z" fill="var(--global-text-color-light)"/>
+          </svg>
+        </div>
+        <div class="author__content">
+          <h3 class="author__name">changjie</h3>
+          <p class="author__bio"><span class="placeholder">（一句话个人简介 / 标签语，待填写）</span></p>
+        </div>
+        <div class="author__urls-wrapper">
+          <button class="btn btn--inverse">Follow</button>
+          <ul class="author__urls social-icons">
+            <!-- 以下各行为占位：填写后把 <span class="placeholder">…</span> 换成真实文字或链接 -->
+            <li class="author__desktop">
+              <i class="icon icon-fw icon-pad-right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path fill-rule="evenodd" d="M384 192c0 87.4-117 243-168.3 307.2c-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192C0 86 86 0 192 0S384 86 384 192zM240 192a48 48 0 1 0-96 0a48 48 0 1 0 96 0z"/>
+                </svg>
+              </i><span class="placeholder">（所在城市，待填写）</span>
+            </li>
+            <li class="author__desktop">
+              <i class="icon icon-fw icon-pad-right">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2 1 8h22zM4 9.5V18h2v-8.5h2V18h2v-8.5h2V18h2v-8.5h2V18h2v-8.5h2v8.5h-1V20H4v-2z"/>
+                </svg>
+              </i><span class="placeholder">（学校 / 机构，待填写）</span>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon icon-fw icon-pad-right icon-stroke">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="1"/>
+                    <path d="M3 6l9 7 9-7"/>
+                  </svg>
+                </i><span class="placeholder">（邮箱，待填写）</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="icon icon-fw icon-pad-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 3 1 8l11 5 9-4.09V15h2V8z"/>
+                    <path d="M5 11.5V16c0 1.5 3 3 7 3s7-1.5 7-3v-4.5l-7 3.18z"/>
+                  </svg>
+                </i><span class="placeholder">（Google Scholar，待填写）</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 右侧正文 ================= -->
+    <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="headline" content="About Me">
+      <div class="page__inner-wrap">
+        <header>
+          <h1 class="page__title" itemprop="headline">About Me</h1>
+        </header>
+        <section class="page__content" itemprop="text">
+          <p class="placeholder">（个人简介段落，待填写——可参考模板撰写研究方向、研究兴趣、教育背景等）</p>
+
+          <hr>
+          <h1 id="advertisement">Advertisement</h1>
+          <p class="placeholder">（招生 / 招聘信息，待填写）</p>
+
+          <hr>
+          <h1 id="news">News</h1>
+          <ul class="placeholder">
+            <li>（新闻动态，待填写：论文录用、获奖、学术服务等）</li>
+          </ul>
+
+          <hr>
+          <h1 id="education">Education</h1>
+          <ul class="placeholder">
+            <li>（教育经历，待填写）</li>
+          </ul>
+
+          <hr>
+          <h1 id="working-projects">Working Projects</h1>
+          <ol class="placeholder">
+            <li>（在研项目，待填写）</li>
+          </ol>
+
+          <hr>
+          <h1 id="professional-services">Professional Services</h1>
+          <p class="placeholder">（学术服务，待填写：担任审稿人 / 编委的会议与期刊）</p>
+        </section>
+        <footer class="page__meta"></footer>
+      </div>
+    </article>
+  </div>
+
+  <!-- ================= 页脚 ================= -->
+  <div class="page__footer">
+    <footer>
+      <a href="#">Sitemap</a>
+      <div class="page__footer-follow">
+        <ul class="social-icons">
+          <li><strong>Follow:</strong></li>
+          <li>
+            <a href="#">
+              <i class="icon icon-pad-right icon-rss">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M4 4a16 16 0 0 1 16 16h-3A13 13 0 0 0 4 7z"/>
+                  <path d="M4 10a10 10 0 0 1 10 10H4z"/>
+                  <circle cx="5" cy="19" r="2"/>
+                </svg>
+              </i>Feed
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="page__footer-copyright">
+        &copy; 2026 changjie. Powered by
+        <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp;
+        <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of
+        <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br>
+        Site last updated 2026-08-19
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    /* 主题切换：亮色 <-> 暗色，并记住选择 */
+    var root = document.documentElement;
+    var icon = document.getElementById('theme-icon');
+    var sunSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>';
+    var moonSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>';
+    function applyTheme(t) {
+      root.setAttribute('data-theme', t);
+      icon.innerHTML = (t === 'dark') ? moonSVG : sunSVG;
+      try { localStorage.setItem('theme', t); } catch (e) {}
+    }
+    applyTheme(root.getAttribute('data-theme'));
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+
+    /* 移动端：Follow 按钮展开 / 收起社交链接列表 */
+    var followBtn = document.querySelector('.author__urls-wrapper button');
+    followBtn.addEventListener('click', function () {
+      document.querySelector('.author__urls').classList.toggle('is--visible');
+    });
+  </script>
+</body>
+</html>
